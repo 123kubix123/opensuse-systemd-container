@@ -29,7 +29,7 @@ RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN groupadd wheel && sed -i '/wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^#//g' /etc/sudoers
 
 # add geeko user (Change given password as necessary)
-RUN useradd -ms /bin/bash -G wheel geeko && echo 'geeko:EEwTjZWEGY4yxPy' | chpasswd
+RUN useradd -ms /bin/bash -G wheel geeko && echo 'geeko:changeme' | chpasswd
 
 # Configure correct stop signal for systemd (makes stopping the container a lot faster)
 STOPSIGNAL SIGRTMIN+3
